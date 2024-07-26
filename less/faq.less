@@ -1,0 +1,151 @@
+@primary-color: #a8834a;
+@secondary-color: #333;
+@background-color: #f4f4f4;
+@header-bg-color: #fff;
+@footer-bg-color: #222;
+@link-hover-color: #856d4f;
+@border-radius: 4px;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: @secondary-color;
+    background-color: @background-color;
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: @header-bg-color;
+    border-bottom: 2px solid @primary-color;
+    padding: 15px 0;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .logo {
+        font-size: 1.8em;
+        font-weight: 700;
+        color: @primary-color;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        z-index: 10;
+
+        .line {
+            background-color: @primary-color;
+            height: 3px;
+            margin: 6px 0;
+            width: 30px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .nav-bar {
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            li {
+                display: inline-block;
+                margin: 0 20px;
+
+                a {
+                    text-decoration: none;
+                    color: @secondary-color;
+                    font-weight: 600;
+                    font-size: 1em;
+                    transition: color 0.3s ease, transform 0.3s ease;
+
+                    &:hover,
+                    &.active {
+                        color: @link-hover-color;
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding: 40px 0;
+    background-color: @background-color;
+
+    .grid {
+        .faq-intro {
+            text-align: center;
+            margin-bottom: 30px;
+
+            h2 {
+                font-size: 2.5em;
+                color: @primary-color;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 1.2em;
+                color: @secondary-color;
+            }
+        }
+
+        .faq {
+            ol {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 800px;
+
+                li {
+                    margin-bottom: 30px;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: @border-radius;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                    .bold {
+                        font-weight: 700;
+                        color: @primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: @footer-bg-color;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+
+    p {
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-bar ul {
+        display: none;
+    }
+}
