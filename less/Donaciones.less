@@ -1,0 +1,186 @@
+@primary-color: #663d22;;
+@secondary-color: #D2B48C;
+@accent-color: #ac6c0b;
+@background-color: #F5F5F5;
+@text-color: #333;
+@font-family: 'Roboto Condensed', sans-serif;
+
+body {
+  font-family: @font-family;
+  background-color: @background-color;
+  color: @text-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: @primary-color;
+  text-decoration: none;
+  &:hover {
+    color: @accent-color;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: @primary-color;
+  padding: 10px 20px;
+  color: #fff;
+
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+
+    .line {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
+  }
+}
+
+.nav-bar {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      margin-left: 20px;
+
+      a {
+        font-size: 1em;
+        font-weight: 600;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+
+        &.active, &:hover {
+          background-color: @secondary-color;
+          color: @primary-color;
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding: 20px;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+
+    .contacto {
+      grid-column: span 12;
+
+      h2 {
+        color: @primary-color;
+      }
+    }
+
+    form.modern {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+
+      .field {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid @secondary-color;
+          border-radius: 4px;
+        }
+      }
+
+      .actions {
+        button {
+          padding: 10px 20px;
+          background-color: @primary-color;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: @accent-color;
+          }
+        }
+      }
+    }
+
+    .donaciones {
+      grid-column: span 12;
+
+      h2 {
+        color: @accent-color;
+      }
+
+      img {
+        margin: 10px 0;
+      }
+    }
+
+    .cita_biblica {
+      grid-column: span 12;
+      font-style: italic;
+      color: @secondary-color;
+      text-align: center;
+    }
+  }
+}
+
+footer {
+  background-color: @primary-color;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+
+  p {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    .hamburger {
+      display: block;
+    }
+    .nav-bar {
+      display: none;
+    }
+  }
+
+  main {
+    .grid {
+      display: block;
+
+      .contacto, form.modern, .donaciones, .cita_biblica {
+        grid-column: span 12;
+      }
+    }
+  }
+}
