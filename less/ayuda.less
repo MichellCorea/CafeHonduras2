@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap');
+
+@primary-color: #663d22;
+@secondary-color: #D4A373;
+@background-color: #F5F5F5;
+@text-color: #333;
+
+// Tipografía
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: @text-color;
+    background-color: @background-color;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+// Encabezado
+header {
+    background-color: @primary-color;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .hamburger {
+        display: none; // Ocultar en escritorio
+    }
+
+    .nav-bar {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            li {
+                margin: 0 1rem;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: 600;
+
+                    &:hover, &.active {
+                        color: @secondary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Logo
+.logoimg {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    img {
+        max-width: 150px;
+    }
+}
+
+// Main
+main {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 8px;
+
+    .carousel {
+        position: relative;
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .boton_frente, .boton_atras {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        .boton_frente {
+            left: 10px;
+        }
+
+        .boton_atras {
+            right: 10px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            overflow: hidden;
+
+            .slide {
+                min-width: 100%;
+                transition: transform 0.5s ease-in-out;
+
+                &[data-active] {
+                    transform: translateX(0);
+                }
+
+                &:not([data-active]) {
+                    transform: translateX(100%);
+                }
+            }
+        }
+    }
+
+    .info_ayuda {
+        margin-top: 2rem;
+
+        h2 {
+            color: @primary-color;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+    }
+}
+
+// Footer
+footer {
+    background-color: @primary-color;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+
+    p {
+        margin: 0.5rem 0;
+    }
+}
+
+// Responsivo
+@media (max-width: 768px) {
+    header {
+        .hamburger {
+            display: block;
+            cursor: pointer;
+
+            .line {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 4px 0;
+            }
+        }
+
+        .nav-bar {
+            display: none;
+
+            ul {
+                flex-direction: column;
+                align-items: center;
+
+                li {
+                    margin: 1rem 0;
+                }
+            }
+        }
+    }
+}
