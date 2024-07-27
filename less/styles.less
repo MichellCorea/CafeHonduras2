@@ -1,0 +1,179 @@
+@font-family: 'Roboto Condensed', sans-serif;
+@primary-color: #333;
+@highlight-color: #f39c12;
+@background-color: #f8f8f8;
+@border-color: #ddd;
+@border-radius: 5px;
+
+
+body {
+    font-family: @font-family;
+    color: @primary-color;
+    margin: 0;
+    padding: 0;
+    background-color: @background-color;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @background-color;
+    padding: 10px 20px;
+    border-bottom: 1px solid @border-color;
+
+    .logo {
+        font-size: 1.2em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 10px;
+            width: auto; 
+            margin-right: 10px;
+        }
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+
+        .line {
+            width: 25px;
+            height: 2px;
+            background-color: @primary-color;
+            margin: 4px 0;
+        }
+    }
+
+    .nav-bar {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+
+            li {
+                margin: 0 10px;
+
+                a {
+                    text-decoration: none;
+                    color: @primary-color;
+                    font-weight: normal;
+                    padding: 5px 10px;
+                    border-radius: @border-radius;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: lighten(@background-color, 10%);
+                    }
+
+                    &.active {
+                        color: @highlight-color;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding: 20px;
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+
+        .contacto {
+            margin-bottom: 20px;
+
+            h2 {
+                margin: 0;
+            }
+
+            p {
+                margin: 5px 0;
+            }
+        }
+
+        .modern {
+            display: flex;
+            flex-direction: column;
+
+            .field {
+                margin-bottom: 10px;
+
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+
+                input[type="text"],
+                input[type="email"] {
+                    width: 100%;
+                    padding: 8px;
+                    border: 1px solid @border-color;
+                    border-radius: @border-radius;
+                    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+                    &:focus {
+                        border-color: @highlight-color;
+                        box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+                    }
+                }
+            }
+
+            .actions {
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    padding: 10px 20px;
+                    background-color: @highlight-color;
+                    border: none;
+                    border-radius: @border-radius;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: darken(@highlight-color, 10%);
+                    }
+                }
+            }
+        }
+
+        .imgs {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+
+            img {
+                max-width: 30%;
+                border-radius: @border-radius;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+    background-color: @background-color;
+    padding: 10px 20px;
+    text-align: center;
+    border-top: 1px solid @border-color;
+
+    p {
+        margin: 5px 0;
+    }
+}
+
